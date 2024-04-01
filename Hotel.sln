@@ -1,6 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel", "Hotel\Hotel.csproj", "{BA79BDB4-FCF2-4981-805A-8A5940087128}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.Api", "Hotel.Api\Hotel.Api.csproj", "{BA79BDB4-FCF2-4981-805A-8A5940087128}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.Domain", "Hotel.Domain\Hotel.Domain.csproj", "{ADFD6AA1-10D4-4AF5-971B-E7B065819361}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.Infrastructure", "Hotel.Infrastructure\Hotel.Infrastructure.csproj", "{89F6E416-1E84-4539-B7F8-30C206AA6D8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel.Application", "Hotel.Application\Hotel.Application.csproj", "{1004FA11-CFA1-4FB5-8E65-6B0284552FB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +18,17 @@ Global
 		{BA79BDB4-FCF2-4981-805A-8A5940087128}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA79BDB4-FCF2-4981-805A-8A5940087128}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA79BDB4-FCF2-4981-805A-8A5940087128}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADFD6AA1-10D4-4AF5-971B-E7B065819361}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADFD6AA1-10D4-4AF5-971B-E7B065819361}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADFD6AA1-10D4-4AF5-971B-E7B065819361}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADFD6AA1-10D4-4AF5-971B-E7B065819361}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89F6E416-1E84-4539-B7F8-30C206AA6D8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89F6E416-1E84-4539-B7F8-30C206AA6D8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89F6E416-1E84-4539-B7F8-30C206AA6D8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89F6E416-1E84-4539-B7F8-30C206AA6D8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1004FA11-CFA1-4FB5-8E65-6B0284552FB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1004FA11-CFA1-4FB5-8E65-6B0284552FB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1004FA11-CFA1-4FB5-8E65-6B0284552FB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1004FA11-CFA1-4FB5-8E65-6B0284552FB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
