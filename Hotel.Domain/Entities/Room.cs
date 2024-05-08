@@ -8,4 +8,6 @@ public class Room : Entity
     public RoomType Type { get; init; }
     public decimal PricePerDay { get; init; }
     public RoomFeature Feature { get; init; }
+    
+    public ICollection<Reservation> Reservations { get; } = new List<Reservation>();
 }
