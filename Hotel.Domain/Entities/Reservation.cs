@@ -6,5 +6,8 @@ public class Reservation : Entity
     public Guid VisitorId { get; init; }
     public DateTime CheckIn { get; init; }   
     public DateTime CheckOut { get; init; }
+    
+    public required Room Room { get; init; }
+    public required Visitor Visitor { get; init; }
 }
 
