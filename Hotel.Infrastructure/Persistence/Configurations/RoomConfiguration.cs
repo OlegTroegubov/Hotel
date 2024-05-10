@@ -17,13 +17,14 @@ public class RoomConfiguration : IEntityTypeConfiguration<Room>
 
         builder.Property(x => x.PricePerDay)
             .IsRequired();
-
-        builder.Property(x => x.Feature)
-            .IsRequired();
-
+        
         builder.Property(x => x.Type)
             .IsRequired();
-
+        
+        builder.HasMany(x => x.Amenities)
+            .WithMany(x => x.Rooms)
+            .UsingEntity<RoomAmenity>();
+        
         builder.HasMany(x => x.Reservations)
             .WithOne(x => x.Room)
             .HasForeignKey(x => x.RoomId)
