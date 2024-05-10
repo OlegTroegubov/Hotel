@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Hotel.Infrastructure.Persistence.Configurations;
 
-public class VisitorConfiguration : IEntityTypeConfiguration<Visitor>
+internal  class VisitorConfiguration : IEntityTypeConfiguration<Visitor>
 {
     public void Configure(EntityTypeBuilder<Visitor> builder)
     {

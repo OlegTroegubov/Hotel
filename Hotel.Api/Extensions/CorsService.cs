@@ -1,4 +1,4 @@
-﻿namespace Hotel.Exstensions;
+﻿namespace Hotel.Extensions;
 
 internal static class CorsService
 {

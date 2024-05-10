@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Hotel.Infrastructure.Persistence.Configurations;
 
-public class RoomConfiguration : IEntityTypeConfiguration<Room>
+internal  class RoomConfiguration : IEntityTypeConfiguration<Room>
 {
     public void Configure(EntityTypeBuilder<Room> builder)
     {

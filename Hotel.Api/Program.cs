@@ -1,4 +1,4 @@
-using Hotel.Exstensions;
+using Hotel.Extensions;
 using Hotel.Infrastructure;
 using Hotel.Infrastructure.Persistence;
 using Hotel.Middleware;

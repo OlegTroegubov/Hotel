@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Hotel.Infrastructure.Persistence.Configurations;
 
-public class AmenityConfiguration : IEntityTypeConfiguration<Amenity>
+internal class AmenityConfiguration : IEntityTypeConfiguration<Amenity>
 {
     public void Configure(EntityTypeBuilder<Amenity> builder)
     {
