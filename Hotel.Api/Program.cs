@@ -1,3 +1,4 @@
+using Hotel.Exstensions;
 using Hotel.Infrastructure;
 using Hotel.Infrastructure.Persistence;
 using Hotel.Middleware;
@@ -8,6 +9,7 @@ builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCorsService();
 
 var app = builder.Build();
 if (app.Environment.IsDevelopment())
@@ -21,6 +23,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseMiddleware<ExceptionMiddleware>();
+app.UseCors("DefaultPolicy");
 app.MapControllers();
 
 app.Run();

@@ -3,7 +3,7 @@ using System.Net;
 
 namespace Hotel.Middleware;
 
-public class ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger)
+internal class ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger)
 {
     public async Task Invoke(HttpContext context)
     {
