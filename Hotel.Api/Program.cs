@@ -1,5 +1,6 @@
 using Hotel.Infrastructure;
 using Hotel.Infrastructure.Persistence;
+using Hotel.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddInfrastructure(builder.Configuration);
@@ -19,6 +20,7 @@ if (app.Environment.IsDevelopment())
     await initializer.InitAsync();
 }
 
+app.UseMiddleware<ExceptionMiddleware>();
 app.MapControllers();
 
 app.Run();
