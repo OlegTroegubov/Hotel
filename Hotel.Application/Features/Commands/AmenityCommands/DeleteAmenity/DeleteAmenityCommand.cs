@@ -1,6 +1,5 @@
-﻿namespace Hotel.Application.Features.Commands.AmenityCommands.DeleteAmenity;
+﻿using MediatR;
 
-public class DeleteAmenityCommand 
-{
-    
-}
+namespace Hotel.Application.Features.Commands.AmenityCommands.DeleteAmenity;
+
+internal sealed record DeleteAmenityCommand(int Id) : IRequest; 

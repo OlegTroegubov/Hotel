@@ -1,6 +1,5 @@
-﻿namespace Hotel.Application.Features.Queries.AmenityQueries.Get;
+﻿using MediatR;
 
-public class GetAmenitiesQuery
-{
-    
-}
+namespace Hotel.Application.Features.Queries.AmenityQueries.Get;
+
+internal sealed record GetAmenitiesQuery : IRequest<IReadOnlyCollection<AmenityDto>>;
