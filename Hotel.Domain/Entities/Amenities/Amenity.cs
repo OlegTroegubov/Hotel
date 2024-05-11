@@ -1,6 +1,8 @@
-﻿namespace Hotel.Domain.Entities;
+﻿using Hotel.Domain.Entities.Rooms;
 
-public class Amenity
+namespace Hotel.Domain.Entities.Amenities;
+
+public sealed class Amenity
 {
     public int Id { get; init; }
     public required string Title { get; init; }

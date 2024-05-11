@@ -8,11 +8,11 @@ namespace Hotel.Infrastructure.Persistence.Interceptors;
 public class SaveEntitiesInterceptor : SaveChangesInterceptor
 {
     public override ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData, InterceptionResult<int> result,
-        CancellationToken cancellationToken = new CancellationToken())
+        CancellationToken cancellationToken = new())
     {
         DbContext? context = eventData.Context;
 
-        if (context == null)
+        if (context is null)
         {
             return base.SavingChangesAsync(eventData, result, cancellationToken);
         }

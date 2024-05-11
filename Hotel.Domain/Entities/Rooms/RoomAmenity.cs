@@ -1,6 +1,6 @@
-﻿namespace Hotel.Domain.Entities;
+﻿namespace Hotel.Domain.Entities.Rooms;
 
-public class RoomAmenity
+public sealed class RoomAmenity
 {
     public Guid RoomId { get; init; }
     public int AmenityId { get; init; }

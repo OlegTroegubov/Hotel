@@ -1,4 +1,6 @@
 ﻿using Hotel.Domain.Entities;
+using Hotel.Domain.Entities.Amenities;
+using Hotel.Domain.Entities.Rooms;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
