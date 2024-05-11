@@ -2,7 +2,4 @@
 
 namespace Hotel.Application.Features.Commands.AmenityCommands.CreateAmenity;
 
-public class CreateAmenityCommand : IRequest<int>
-{
-    public required string Title { get; init; }
-}
+internal sealed record CreateAmenityCommand(string Title) : IRequest<int>;
