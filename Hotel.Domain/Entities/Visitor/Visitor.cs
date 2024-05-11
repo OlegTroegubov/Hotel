@@ -1,6 +1,8 @@
-﻿namespace Hotel.Domain.Entities;
+﻿using Hotel.Domain.Entities.Reservations;
 
-public class Visitor : Entity
+namespace Hotel.Domain.Entities.Visitor;
+
+public sealed class Visitor : Entity
 {
     public required string FirstName { get; init; }
     public required string LastName { get; init; }

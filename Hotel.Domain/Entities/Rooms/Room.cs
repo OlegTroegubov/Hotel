@@ -1,8 +1,10 @@
-﻿using Hotel.Domain.Enums;
+﻿using Hotel.Domain.Entities.Amenities;
+using Hotel.Domain.Entities.Reservations;
+using Hotel.Domain.Enums;
 
-namespace Hotel.Domain.Entities;
+namespace Hotel.Domain.Entities.Rooms;
 
-public class Room : Entity
+public sealed class Room : Entity
 {
     public double Area { get; init; }
     public RoomType Type { get; init; }
