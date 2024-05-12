@@ -1,4 +1,5 @@
-﻿using Hotel.Application.Common.Interfaces;
+﻿using System.Linq.Expressions;
+using Hotel.Application.Common.Interfaces;
 using Hotel.Domain.Entities.Amenities;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,6 +20,11 @@ internal sealed class AmenityRepository(IApplicationDbContext context) : IAmenit
     public async Task<Amenity?> GetByIdAsync(int id, CancellationToken cancellationToken)
     {
         return await context.Amenities.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+    }
+
+    public async Task<bool> AnyAsync(Expression<Func<Amenity, bool>> predicate, CancellationToken cancellationToken)
+    {
+        return await context.Amenities.AnyAsync(predicate, cancellationToken);
     }
 
     public async Task<Amenity?> GetByTitleAsync(string title, CancellationToken cancellationToken)
