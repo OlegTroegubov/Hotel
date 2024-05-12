@@ -13,7 +13,7 @@ internal class CreateAmenityCommandHandler(
     {
         Amenity? amenity = await repository.GetByTitleAsync(request.Title, cancellationToken);
 
-        if (amenity is null) throw new AlreadyExistsException("Amenity with this title is already exist");
+        if (amenity is not null) throw new AlreadyExistsException("Amenity with this title is already exist");
 
         Amenity newAmenity = new Amenity
         {

@@ -2,4 +2,7 @@
 
 namespace Hotel.Application.Features.Queries.AmenityQueries.GetById;
 
-internal sealed record GetAmenityByIdQuery(int Id) : IRequest<AmenityDto>;
+public sealed class GetAmenityByIdQuery : IRequest<AmenityDto>
+{
+    public int Id { get; init; }
+}

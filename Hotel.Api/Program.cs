@@ -5,8 +5,10 @@ using Hotel.Infrastructure.Persistence;
 using Hotel.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
+builder.Services.AddValidationServices();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

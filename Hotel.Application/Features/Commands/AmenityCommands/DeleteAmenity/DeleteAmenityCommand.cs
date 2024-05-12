@@ -2,4 +2,7 @@
 
 namespace Hotel.Application.Features.Commands.AmenityCommands.DeleteAmenity;
 
-internal sealed record DeleteAmenityCommand(int Id) : IRequest; 
+public sealed record DeleteAmenityCommand : IRequest
+{
+    public int Id { get; init; }
+}; 

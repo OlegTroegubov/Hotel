@@ -17,7 +17,7 @@ namespace Hotel.Infrastructure.Migrations
                 table: "Rooms");
 
             migrationBuilder.CreateTable(
-                name: "Amenity",
+                name: "Amenities",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -42,7 +42,7 @@ namespace Hotel.Infrastructure.Migrations
                     table.ForeignKey(
                         name: "FK_RoomAmenity_Amenity_AmenityId",
                         column: x => x.AmenityId,
-                        principalTable: "Amenity",
+                        principalTable: "Amenities",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -66,7 +66,7 @@ namespace Hotel.Infrastructure.Migrations
                 name: "RoomAmenity");
 
             migrationBuilder.DropTable(
-                name: "Amenity");
+                name: "Amenities");
 
             migrationBuilder.AddColumn<int>(
                 name: "Feature",

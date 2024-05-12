@@ -2,4 +2,4 @@
 
 namespace Hotel.Application.Features.Queries.AmenityQueries.Get;
 
-internal sealed record GetAmenitiesQuery : IRequest<IReadOnlyCollection<AmenityDto>>;
+public sealed class GetAmenitiesQuery : IRequest<IReadOnlyCollection<AmenityDto>>;

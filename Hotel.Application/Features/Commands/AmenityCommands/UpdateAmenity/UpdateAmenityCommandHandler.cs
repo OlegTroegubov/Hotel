@@ -12,9 +12,13 @@ internal sealed class UpdateAmenityCommandHandler
     public async Task Handle(UpdateAmenityCommand request, CancellationToken cancellationToken)
     {
         Amenity? amenity = await repository.GetByIdAsync(request.Id, cancellationToken);
-
+        
         if (amenity is null) throw new NotFoundException("Amenity was not found");
 
+        var isAny = await repository.AnyAsync(x => x.Title == request.Title, cancellationToken);
+        
+        if (isAny) throw new AlreadyExistsException("Amenity with this title is already exist");
+        
         amenity.Title = request.Title;
 
         await unitOfWork.SaveChangesAsync(cancellationToken);
