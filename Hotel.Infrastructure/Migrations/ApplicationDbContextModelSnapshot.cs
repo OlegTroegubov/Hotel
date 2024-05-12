@@ -37,7 +37,7 @@ namespace Hotel.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Amenity");
+                    b.ToTable("Amenities");
                 });
 
             modelBuilder.Entity("Hotel.Domain.Entities.Reservation", b =>
