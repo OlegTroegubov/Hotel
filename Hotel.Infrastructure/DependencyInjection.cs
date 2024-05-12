@@ -30,6 +30,8 @@ public static class DependencyInjection
                     .AddInterceptors(saveEntitiesInterceptor);
         });
 
+        services.AddScoped<IApplicationDbContext>(sp => sp.GetRequiredService<ApplicationDbContext>());
+
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<ApplicationDbContext>());
 
         services.AddScoped<IAmenityRepository, AmenityRepository>();
