@@ -2,4 +2,8 @@
 
 namespace Hotel.Application.Features.Commands.AmenityCommands.UpdateAmenity;
 
-internal sealed record UpdateAmenityCommand(int Id, string Title) : IRequest;
+public sealed record UpdateAmenityCommand : IRequest
+{
+    public int Id { get; init; }
+    public required string Title { get; init; }
+};
