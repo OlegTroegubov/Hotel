@@ -28,8 +28,4 @@
       <ProjectReference Include="..\Hotel.Application\Hotel.Application.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Amenity\Queries\" />
-    </ItemGroup>
-
 </Project>
