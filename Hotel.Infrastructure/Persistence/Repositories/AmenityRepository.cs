@@ -21,15 +21,10 @@ internal sealed class AmenityRepository(IApplicationDbContext context) : IAmenit
     {
         return await context.Amenities.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
     }
-
-    public async Task<bool> AnyAsync(Expression<Func<Amenity, bool>> predicate, CancellationToken cancellationToken)
+    
+    public async Task<bool> IsTitleUniqueAsync(string title, CancellationToken cancellationToken)
     {
-        return await context.Amenities.AnyAsync(predicate, cancellationToken);
-    }
-
-    public async Task<Amenity?> GetByTitleAsync(string title, CancellationToken cancellationToken)
-    {
-        return await context.Amenities.FirstOrDefaultAsync(x => x.Title == title, cancellationToken);
+        return await context.Amenities.AnyAsync(x => x.Title == title, cancellationToken);
     }
 
     public async Task<IReadOnlyCollection<Amenity>> GetAsync(CancellationToken cancellationToken)
