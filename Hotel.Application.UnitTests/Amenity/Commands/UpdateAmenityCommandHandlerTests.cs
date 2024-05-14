@@ -60,6 +60,16 @@ public class UpdateAmenityCommandHandlerTests
         };
 
         _amenityRepositoryMock.Setup(
+                x => x.GetByIdAsync(
+                    It.IsAny<int>(),
+                    It.IsAny<CancellationToken>()))
+            .ReturnsAsync(new Domain.Entities.Amenities.Amenity
+            {
+                Id = 1,
+                Title = "test"
+            });
+        
+        _amenityRepositoryMock.Setup(
                 x => x.IsTitleUniqueAsync(
                     It.IsAny<string>(),
                     It.IsAny<CancellationToken>()))
