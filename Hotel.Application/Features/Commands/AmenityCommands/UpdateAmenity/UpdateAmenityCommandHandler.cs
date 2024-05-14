@@ -15,9 +15,9 @@ internal sealed class UpdateAmenityCommandHandler
         
         if (amenity is null) throw new NotFoundException("Amenity was not found");
 
-        var isAny = await repository.AnyAsync(x => x.Title == request.Title, cancellationToken);
-        
-        if (isAny) throw new AlreadyExistsException("Amenity with this title is already exist");
+        bool isTitleUnique = await repository.IsTitleUniqueAsync(request.Title, cancellationToken);
+
+        if (!isTitleUnique) throw new AlreadyExistsException("Amenity with this title is already exist");
         
         amenity.Title = request.Title;
 
