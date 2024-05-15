@@ -1,11 +1,10 @@
-﻿using Hotel.Domain.Entities;
-using Hotel.Domain.Entities.Reservations;
+﻿using Hotel.Domain.Entities.Reservations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Hotel.Infrastructure.Persistence.Configurations;
 
-internal  class ReservationConfiguration : IEntityTypeConfiguration<Reservation>
+internal class ReservationConfiguration : IEntityTypeConfiguration<Reservation>
 {
     public void Configure(EntityTypeBuilder<Reservation> builder)
     {
@@ -16,7 +15,7 @@ internal  class ReservationConfiguration : IEntityTypeConfiguration<Reservation>
 
         builder.Property(x => x.CheckIn)
             .IsRequired();
-        
+
         builder.Property(x => x.CheckOut)
             .IsRequired();
 
@@ -24,7 +23,7 @@ internal  class ReservationConfiguration : IEntityTypeConfiguration<Reservation>
             .WithMany(x => x.Reservations)
             .HasForeignKey(x => x.VisitorId)
             .IsRequired();
-        
+
         builder.HasOne(x => x.Room)
             .WithMany(x => x.Reservations)
             .HasForeignKey(x => x.RoomId)

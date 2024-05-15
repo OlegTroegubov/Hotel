@@ -6,4 +6,4 @@ public sealed record UpdateAmenityCommand : IRequest
 {
     public int Id { get; init; }
     public required string Title { get; init; }
-};
+}

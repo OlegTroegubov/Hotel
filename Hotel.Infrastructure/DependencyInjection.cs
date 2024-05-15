@@ -18,16 +18,16 @@ public static class DependencyInjection
         IConfiguration configuration)
     {
         services.AddSingleton<SaveEntitiesInterceptor>();
-        
+
         services.AddDbContext<ApplicationDbContext>((sp, opt)
             =>
         {
             var saveEntitiesInterceptor = sp.GetRequiredService<SaveEntitiesInterceptor>();
-            
-            opt.UseNpgsql(configuration.GetConnectionString("Database"), 
-    builder => builder
-                    .MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName))
-                    .AddInterceptors(saveEntitiesInterceptor);
+
+            opt.UseNpgsql(configuration.GetConnectionString("Database"),
+                    builder => builder
+                        .MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName))
+                .AddInterceptors(saveEntitiesInterceptor);
         });
 
         services.AddScoped<IApplicationDbContext>(sp => sp.GetRequiredService<ApplicationDbContext>());
@@ -35,13 +35,13 @@ public static class DependencyInjection
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<ApplicationDbContext>());
 
         services.AddScoped<IAmenityRepository, AmenityRepository>();
-        
+
         services.AddScoped<IReservationRepository, ReservationRepository>();
-        
+
         services.AddScoped<IRoomRepository, RoomRepository>();
-        
+
         services.AddScoped<IVisitorRepository, VisitorRepository>();
-        
+
         services.AddScoped<ApplicationDbContextInitializer>();
     }
 }

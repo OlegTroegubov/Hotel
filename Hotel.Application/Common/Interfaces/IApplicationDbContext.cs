@@ -1,5 +1,4 @@
-﻿using Hotel.Domain.Entities;
-using Hotel.Domain.Entities.Amenities;
+﻿using Hotel.Domain.Entities.Amenities;
 using Hotel.Domain.Entities.Reservations;
 using Hotel.Domain.Entities.Rooms;
 using Hotel.Domain.Entities.Visitor;

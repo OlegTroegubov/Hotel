@@ -18,17 +18,19 @@ namespace Hotel.Controllers.Amenity;
 public class AmenityController(IMediator mediator) : ControllerBase
 {
     [HttpPost]
-    public async Task<ActionResult> Create([FromBody]CreateAmenityInputModel model, CancellationToken cancellationToken)
+    public async Task<ActionResult> Create([FromBody] CreateAmenityInputModel model,
+        CancellationToken cancellationToken)
     {
-        int id = await mediator.Send(new CreateAmenityCommand
+        var id = await mediator.Send(new CreateAmenityCommand
         {
             Title = model.Title!
         }, cancellationToken);
-        return Created(string.Empty, new {Id = id});
+        return Created(string.Empty, new { Id = id });
     }
 
     [HttpPut]
-    public async Task<IActionResult> Change([FromBody]UpdateAmenityInputModel model, CancellationToken cancellationToken)
+    public async Task<IActionResult> Change([FromBody] UpdateAmenityInputModel model,
+        CancellationToken cancellationToken)
     {
         await mediator.Send(new UpdateAmenityCommand
         {
@@ -37,16 +39,16 @@ public class AmenityController(IMediator mediator) : ControllerBase
         }, cancellationToken);
         return Ok();
     }
-    
+
     [HttpGet]
     public async Task<ActionResult<IReadOnlyCollection<AmenityDto>>> Get(CancellationToken cancellationToken)
     {
         return Ok(await mediator.Send(new GetAmenitiesQuery(), cancellationToken));
     }
-    
+
     [HttpGet]
-    public async Task<ActionResult<AmenityDto>> 
-        GetById([FromQuery]GetAmenityByIdInputModel model, CancellationToken cancellationToken)
+    public async Task<ActionResult<AmenityDto>>
+        GetById([FromQuery] GetAmenityByIdInputModel model, CancellationToken cancellationToken)
     {
         return Ok(await mediator.Send(new GetAmenityByIdQuery
         {
@@ -55,7 +57,8 @@ public class AmenityController(IMediator mediator) : ControllerBase
     }
 
     [HttpDelete]
-    public async Task<IActionResult> Delete([FromBody]DeleteAmenityInputModel model, CancellationToken cancellationToken)
+    public async Task<IActionResult> Delete([FromBody] DeleteAmenityInputModel model,
+        CancellationToken cancellationToken)
     {
         await mediator.Send(new DeleteAmenityCommand
         {

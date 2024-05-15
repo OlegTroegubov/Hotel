@@ -14,7 +14,7 @@ internal sealed class ReservationRepository(ApplicationDbContext context) : IRes
     {
         context.Reservations.Remove(reservation);
     }
-    
+
     public async Task<Reservation?> GetByIdAsync(Guid id, CancellationToken cancellationToken)
     {
         return await context.Reservations.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);

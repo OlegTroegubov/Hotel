@@ -7,12 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.2" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.2"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Hotel.Application\Hotel.Application.csproj" />
-      <ProjectReference Include="..\Hotel.Domain\Hotel.Domain.csproj" />
+        <ProjectReference Include="..\Hotel.Application\Hotel.Application.csproj"/>
+        <ProjectReference Include="..\Hotel.Domain\Hotel.Domain.csproj"/>
     </ItemGroup>
 
 </Project>

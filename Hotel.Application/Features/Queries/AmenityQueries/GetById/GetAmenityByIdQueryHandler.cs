@@ -5,12 +5,12 @@ using MediatR;
 
 namespace Hotel.Application.Features.Queries.AmenityQueries.GetById;
 
-internal sealed class GetAmenityByIdQueryHandler(IAmenityRepository repository, IMapper mapper) 
+internal sealed class GetAmenityByIdQueryHandler(IAmenityRepository repository, IMapper mapper)
     : IRequestHandler<GetAmenityByIdQuery, AmenityDto>
 {
     public async Task<AmenityDto> Handle(GetAmenityByIdQuery request, CancellationToken cancellationToken)
     {
-        Amenity? amenity = await repository.GetByIdAsync(request.Id, cancellationToken);
+        var amenity = await repository.GetByIdAsync(request.Id, cancellationToken);
 
         if (amenity is null) throw new NotFoundException("Amenity was not found");
 

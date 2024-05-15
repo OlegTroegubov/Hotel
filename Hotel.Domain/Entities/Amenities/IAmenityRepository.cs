@@ -1,6 +1,4 @@
-﻿using System.Linq.Expressions;
-
-namespace Hotel.Domain.Entities.Amenities;
+﻿namespace Hotel.Domain.Entities.Amenities;
 
 public interface IAmenityRepository
 {

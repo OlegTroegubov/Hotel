@@ -8,18 +8,18 @@ namespace Hotel.Application.UnitTests.Amenity.Commands;
 
 public class DeleteAmenityCommandHandlerTests
 {
-    private readonly Mock<IUnitOfWork> _unitOfWorkMock = new ();
-    private readonly Mock<IAmenityRepository> _amenityRepositoryMock = new ();
+    private readonly Mock<IAmenityRepository> _amenityRepositoryMock = new();
+    private readonly Mock<IUnitOfWork> _unitOfWorkMock = new();
 
     [Fact]
     public async Task Handle_ShouldDelete_WhenAmenityExists()
     {
         //Arrange
-        var command = new DeleteAmenityCommand()
+        var command = new DeleteAmenityCommand
         {
             Id = 1
         };
-        
+
         _amenityRepositoryMock.Setup(
                 x => x.GetByIdAsync(
                     It.IsAny<int>(),
@@ -29,34 +29,31 @@ public class DeleteAmenityCommandHandlerTests
                 Id = command.Id,
                 Title = "test"
             });
-        
+
         var handler = new DeleteAmenityCommandHandler(_amenityRepositoryMock.Object, _unitOfWorkMock.Object);
 
         //Act
-        var exception = await Record.ExceptionAsync(async () =>
-        {
-            await handler.Handle(command, default);
-        });
+        var exception = await Record.ExceptionAsync(async () => { await handler.Handle(command, default); });
 
         // Assert
         Assert.Null(exception);
     }
-    
+
     [Fact]
     public async Task Handle_ThrowNotFoundException_WhenAmenityNotExists()
     {
         //Arrange
-        var command = new DeleteAmenityCommand()
+        var command = new DeleteAmenityCommand
         {
             Id = 1
         };
-        
+
         _amenityRepositoryMock.Setup(
                 x => x.GetByIdAsync(
                     It.IsAny<int>(),
                     It.IsAny<CancellationToken>()))
             .ReturnsAsync((Domain.Entities.Amenities.Amenity?)null);
-        
+
         var handler = new DeleteAmenityCommandHandler(_amenityRepositoryMock.Object, _unitOfWorkMock.Object);
 
         // Act & Assert

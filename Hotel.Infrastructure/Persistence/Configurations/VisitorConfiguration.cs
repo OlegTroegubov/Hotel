@@ -1,11 +1,10 @@
-﻿using Hotel.Domain.Entities;
-using Hotel.Domain.Entities.Visitor;
+﻿using Hotel.Domain.Entities.Visitor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Hotel.Infrastructure.Persistence.Configurations;
 
-internal  class VisitorConfiguration : IEntityTypeConfiguration<Visitor>
+internal class VisitorConfiguration : IEntityTypeConfiguration<Visitor>
 {
     public void Configure(EntityTypeBuilder<Visitor> builder)
     {
@@ -16,22 +15,22 @@ internal  class VisitorConfiguration : IEntityTypeConfiguration<Visitor>
 
         builder.Property(x => x.Email)
             .HasMaxLength(300);
-        
+
         builder.Property(x => x.MiddleName)
             .HasMaxLength(300);
-        
+
         builder.Property(x => x.Phone)
             .IsRequired()
             .HasMaxLength(300);
-        
+
         builder.Property(x => x.FirstName)
             .IsRequired()
             .HasMaxLength(300);
-        
+
         builder.Property(x => x.LastName)
             .IsRequired()
             .HasMaxLength(300);
-        
+
         builder.HasMany(x => x.Reservations)
             .WithOne(x => x.Visitor)
             .HasForeignKey(x => x.VisitorId)
