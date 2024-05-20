@@ -13,8 +13,14 @@ internal sealed class UpdateVisitorCommandHandler(IVisitorRepository repository,
         Visitor? visitor = await repository.GetByIdAsync(request.Id, cancellationToken);
 
         if (visitor is null) throw new NotFoundException("Visitor was not found");
-        
-        if (request.Phone is not null) visitor.Phone = request.Phone;
+
+        if (request.Phone is not null)
+        {
+            var isPhoneIsUnique = await repository.IsPhoneIsUniqueAsync(request.Phone, cancellationToken);
+            if (!isPhoneIsUnique) throw new AlreadyExistsException("Visitor with this phone is already exist");
+            
+            visitor.Phone = request.Phone;
+        }
         if (request.LastName is not null) visitor.LastName = request.LastName;
         if (request.FirstName is not null) visitor.FirstName = request.FirstName;
 

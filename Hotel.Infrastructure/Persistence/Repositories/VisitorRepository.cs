@@ -20,9 +20,9 @@ internal sealed class VisitorRepository(ApplicationDbContext context) : IVisitor
         return await context.Visitors.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
     }
 
-    public async Task<Visitor?> GetByPhoneAsync(string phone, CancellationToken cancellationToken)
+    public async Task<bool> IsPhoneIsUniqueAsync(string phone, CancellationToken cancellationToken)
     {
-        return await context.Visitors.FirstOrDefaultAsync(x => x.Phone == phone, cancellationToken);
+        return await context.Visitors.AnyAsync(x => x.Phone == phone, cancellationToken);
     }
 
     public async Task<IReadOnlyCollection<Visitor>> GetAllAsync(CancellationToken cancellationToken)

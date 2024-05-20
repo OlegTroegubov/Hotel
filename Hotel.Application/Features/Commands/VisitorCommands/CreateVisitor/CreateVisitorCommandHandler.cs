@@ -10,11 +10,11 @@ internal sealed class CreateVisitorCommandHandler(IVisitorRepository repository,
 {
     public async Task<Guid> Handle(CreateVisitorCommand request, CancellationToken cancellationToken)
     {
-        Visitor? visitor = await repository.GetByPhoneAsync(request.Phone, cancellationToken);
+        var isPhoneIsUnique = await repository.IsPhoneIsUniqueAsync(request.Phone, cancellationToken);
 
-        if (visitor is not null) throw new AlreadyExistsException("Visitor with this phone is already exist");
+        if (!isPhoneIsUnique) throw new AlreadyExistsException("Visitor with this phone is already exist");
         
-        visitor = new Visitor
+        Visitor visitor = new Visitor
         {
             Id = Guid.NewGuid(),
             FirstName = request.FirstName,
