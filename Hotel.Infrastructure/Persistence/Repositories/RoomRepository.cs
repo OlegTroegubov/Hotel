@@ -20,8 +20,8 @@ internal sealed class RoomRepository(ApplicationDbContext context) : IRoomReposi
         return await context.Rooms.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
     }
 
-    public async Task<IReadOnlyCollection<Room>> GetAsync(CancellationToken cancellationToken)
+    public async Task<IReadOnlyCollection<Room>> GetAllAsync(CancellationToken cancellationToken)
     {
-        return await context.Rooms.ToListAsync(cancellationToken);
+        return await context.Rooms.AsNoTracking().ToListAsync(cancellationToken);
     }
 }

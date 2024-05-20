@@ -2,7 +2,7 @@
 using Hotel.Application.Features.Commands.AmenityCommands.DeleteAmenity;
 using Hotel.Application.Features.Commands.AmenityCommands.UpdateAmenity;
 using Hotel.Application.Features.Queries.AmenityQueries;
-using Hotel.Application.Features.Queries.AmenityQueries.Get;
+using Hotel.Application.Features.Queries.AmenityQueries.GetAll;
 using Hotel.Application.Features.Queries.AmenityQueries.GetById;
 using Hotel.Controllers.Amenity.InputModels.Create;
 using Hotel.Controllers.Amenity.InputModels.Delete;
