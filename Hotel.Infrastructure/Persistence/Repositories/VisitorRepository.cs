@@ -20,8 +20,13 @@ internal sealed class VisitorRepository(ApplicationDbContext context) : IVisitor
         return await context.Visitors.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
     }
 
-    public async Task<IReadOnlyCollection<Visitor>> GetAsync(CancellationToken cancellationToken)
+    public async Task<Visitor?> GetByPhoneAsync(string phone, CancellationToken cancellationToken)
     {
-        return await context.Visitors.ToListAsync(cancellationToken);
+        return await context.Visitors.FirstOrDefaultAsync(x => x.Phone == phone, cancellationToken);
+    }
+
+    public async Task<IReadOnlyCollection<Visitor>> GetAllAsync(CancellationToken cancellationToken)
+    {
+        return await context.Visitors.AsNoTracking().ToListAsync(cancellationToken);
     }
 }

@@ -1,5 +1,8 @@
-﻿namespace Hotel.Application.Features.Commands.VisitorCommands.DeleteVisitor;
+﻿using MediatR;
 
-public class DeleteVisitorCommand
+namespace Hotel.Application.Features.Commands.VisitorCommands.DeleteVisitor;
+
+public sealed record DeleteVisitorCommand : IRequest
 {
+    public required Guid Id { get; init; }
 }
