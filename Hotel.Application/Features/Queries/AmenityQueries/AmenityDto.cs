@@ -5,7 +5,7 @@ namespace Hotel.Application.Features.Queries.AmenityQueries;
 
 public sealed class AmenityDto
 {
-    public int Id { get; init; }
+    public required int Id { get; init; }
     public required string Title { get; init; }
 }
 

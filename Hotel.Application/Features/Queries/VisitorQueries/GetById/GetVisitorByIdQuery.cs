@@ -1,5 +1,8 @@
-﻿namespace Hotel.Application.Features.Queries.VisitorQueries.GetById;
+﻿using MediatR;
 
-public class GetVisitorByIdQuery
+namespace Hotel.Application.Features.Queries.VisitorQueries.GetById;
+
+public sealed record GetVisitorByIdQuery : IRequest<VisitorDto>
 {
+    public required Guid Id { get; init; }
 }

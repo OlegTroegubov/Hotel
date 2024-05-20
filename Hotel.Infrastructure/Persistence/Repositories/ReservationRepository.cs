@@ -20,8 +20,8 @@ internal sealed class ReservationRepository(ApplicationDbContext context) : IRes
         return await context.Reservations.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
     }
 
-    public async Task<IReadOnlyCollection<Reservation>> GetAsync(CancellationToken cancellationToken)
+    public async Task<IReadOnlyCollection<Reservation>> GetAllAsync(CancellationToken cancellationToken)
     {
-        return await context.Reservations.ToListAsync(cancellationToken);
+        return await context.Reservations.AsNoTracking().ToListAsync(cancellationToken);
     }
 }

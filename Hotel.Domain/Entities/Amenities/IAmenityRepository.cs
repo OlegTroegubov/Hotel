@@ -6,5 +6,5 @@ public interface IAmenityRepository
     void Delete(Amenity amenity);
     Task<Amenity?> GetByIdAsync(int id, CancellationToken cancellationToken);
     Task<bool> IsTitleUniqueAsync(string title, CancellationToken cancellationToken);
-    Task<IReadOnlyCollection<Amenity>> GetAsync(CancellationToken cancellationToken);
+    Task<IReadOnlyCollection<Amenity>> GetAllAsync(CancellationToken cancellationToken);
 }

@@ -26,8 +26,8 @@ internal sealed class AmenityRepository(IApplicationDbContext context) : IAmenit
         return await context.Amenities.AnyAsync(x => x.Title == title, cancellationToken);
     }
 
-    public async Task<IReadOnlyCollection<Amenity>> GetAsync(CancellationToken cancellationToken)
+    public async Task<IReadOnlyCollection<Amenity>> GetAllAsync(CancellationToken cancellationToken)
     {
-        return await context.Amenities.ToListAsync(cancellationToken);
+        return await context.Amenities.AsNoTracking().ToListAsync(cancellationToken);
     }
 }
